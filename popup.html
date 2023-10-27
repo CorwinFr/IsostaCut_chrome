@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ISOSTACUT Optimiseur de découpes linéaires</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>ISOSTACUT Optimiseur de découpes linéaires</h1>
+    <input type="number" id="bar_length" placeholder="Longueur de la barre" value="3992">
+    <textarea id="cuts" placeholder="Liste des découpes (ex: 3200,50; 3100,50)"></textarea>
+    <button id="optimizeButton">Optimiser</button>
+    <span style="margin-left: 10px;">ARAMIS - Guillaume CLEMENT</span>
+    <div id="loader" style="display: none;">
+        <img src="spinner.gif" alt="Chargement en cours..." class="spinner">
+    </div>    
+    <div id="result"></div>
+    <script src="popup.js"></script>
+</body>
+</html>

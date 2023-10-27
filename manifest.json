@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Optimiseur de Découpe",
+    "version": "1.0",
+    "description": "Optimisez vos découpes de tasseaux",
+    "permissions": ["activeTab", "http://51.75.252.78:8000/*"],
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      }
+    },
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "web_accessible_resources": ["spinner.gif"]  
+  }
+  
