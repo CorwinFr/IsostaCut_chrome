@@ -21,14 +21,19 @@ document.getElementById('optimizeButton').addEventListener('click', function() {
     }   
 
     // Nettoyage de la chaîne 'cuts'
+
+    cuts = cuts.replace(/^[^\d]+/, ''); // Enlever tous les caractères avant le premier chiffre
+
     cuts = cuts.replace(/\t/g, ',') // Remplacer la tabulation par une virgule
                 .replace(/\n+/g, ';') // Remplacer les retours à la ligne par des points-virgules
       //          .replace(/\s+/g, '') // Enlever les espaces
                 .replace(/,+/g, ',') // Remplacer les multiples virgules par une seule
                 .replace(/;+/g, ';') // Remplacer les multiples points virgules par un seul            
-                .replace(/;+$/, ''); // Enlever le point virgule final si présent
+                .replace(/;+$/, '') // Enlever le point virgule final si présent
+                .replace(/[^\d;,]/g, '');  // Enlever tous les caractères autres que numériques, virgules, et points-virgules
 
-               alert(cuts);
+               //alert(cuts);
+               
     // Traitement des données des tasseaux
     try {   
     var data = {
