@@ -1,3 +1,14 @@
+document.getElementById('total_bars_button').addEventListener('click', function() {
+    const totalBars = this.textContent.replace("Nombre de barres : ", "");
+    navigator.clipboard.writeText(totalBars)
+        .then(() => {
+            alert("Nombre de barres copié : " + totalBars);
+        })
+        .catch(err => {
+            console.error('Erreur lors de la copie dans le presse-papiers :', err);
+        });
+});
+
 document.getElementById('optimizeButton').addEventListener('click', function() {
     // Récupérer l'élément spinner
     var loader = document.getElementById('loader');
@@ -5,9 +16,11 @@ document.getElementById('optimizeButton').addEventListener('click', function() {
     // Afficher le spinner
     loader.style.display = 'block';
 
-    // Sélectionner l'élément de résultat et le vider
-    var resultElement = document.getElementById('result');
-    resultElement.innerHTML = '';
+    // Réinitialiser les affichages précédents
+    document.getElementById('result').innerText = '';
+    document.getElementById('total_bars_button').style.display = 'none';
+    document.getElementById('total_chute').textContent = '';
+    document.getElementById('total_pieces').textContent = '';
 
     // Récupérer les valeurs de longueur et de coupes
     var barLength = document.getElementById('bar_length').value;
@@ -64,11 +77,18 @@ document.getElementById('optimizeButton').addEventListener('click', function() {
         for (const [cut, quantity] of Object.entries(data.cuts)) {
             resultText += `${cut} : ${quantity}\n`; // Ajoute chaque découpe sur une nouvelle ligne
         }
-        resultText += `Nombre total de barres : ${data.total_bars}`; // Ajoute le total des barres à la fin
         document.getElementById('result').innerText = resultText;
 
+        // Afficher le nombre de barres
+        document.getElementById('total_bars_button').textContent = "Nombre de barres : " + data.total_bars;
+        document.getElementById('total_bars_button').style.display = 'block';
+
+        // Afficher la chute totale et le nombre de pièces
+        document.getElementById('total_chute').textContent = "Chute : " + data.total_chute;
+        document.getElementById('total_pieces').textContent = "Nombre de pièces : " + data.total_tasseaux_decoupes;
+
         // Cacher le spinner
-        loader.style.display = 'none';        
+        document.getElementById('loader').style.display = 'none';        
 
     })
     .catch(error => {

@@ -1,9 +1,10 @@
 {
     "manifest_version": 2,
-    "name": "Optimiseur de Découpe",
+    "name": "Optimiseur de Découpes linéaires",
     "version": "1.0",
-    "description": "Optimisez vos découpes de tasseaux",
+    "description": "Optimisez vos découpes linéaires avec ce plugin !",
     "permissions": ["activeTab", "http://51.75.252.78:8000/*"],
+    //"default_locale": "en",
     "browser_action": {
       "default_popup": "popup.html",
       "default_icon": {
