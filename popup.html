@@ -8,10 +8,11 @@
 <body>
     <h1>ISOSTACUT Optimiseur de découpes linéaires</h1>
     <input type="number" id="bar_length" placeholder="Longueur de la barre" value="3992">
-    <textarea id="cuts" placeholder="Liste des découpes (ex: 3200,50; 3100,50)"></textarea>
+    <textarea id="cuts" placeholder="longueur,quantité&#10;3200,50&#10;3100,50"></textarea>
     <button id="optimizeButton">Optimiser</button>
     <span style="margin-left: 10px;">ARAMIS - Guillaume CLEMENT</span>
     <p>icons by&nbsp;<a href="https://icones8.fr/">icones8</a></p>
+    <div id="processing_message"></div>
     <div id="loader" style="display: none;">
         <img src="spinner.gif" alt="Chargement en cours..." class="spinner">
     </div>    

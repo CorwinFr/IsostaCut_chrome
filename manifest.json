@@ -3,8 +3,7 @@
     "name": "Optimiseur de Découpes linéaires",
     "version": "1.0",
     "description": "Optimisez vos découpes linéaires avec ce plugin !",
-    "permissions": ["activeTab", "http://51.75.252.78:8000/*"],
-    //"default_locale": "en",
+    "permissions": ["activeTab","https://gctdevweb.ovh/*"],
     "browser_action": {
       "default_popup": "popup.html",
       "default_icon": {
