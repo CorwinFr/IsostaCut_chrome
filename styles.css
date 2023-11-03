@@ -42,3 +42,7 @@ button:hover {
 }
 
 /* Ajoutez d'autres éléments CSS ici selon vos besoins */
+
+#result, #total_chute, #processing_message {
+    margin-bottom: 5px;
+}

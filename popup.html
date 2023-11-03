@@ -7,19 +7,33 @@
 </head>
 <body>
     <h1>ISOSTACUT Optimiseur de découpes linéaires</h1>
+    <label for="bar_length">Longueur de barre : </label>
+    <br><br>
     <input type="number" id="bar_length" placeholder="Longueur de la barre" value="3992">
+    <br><br>
+    <label for="cuts">Besoins en découpes :</label>
+    <br><br>
     <textarea id="cuts" placeholder="longueur,quantité&#10;3200,50&#10;3100,50"></textarea>
     <button id="optimizeButton">Optimiser</button>
     <span style="margin-left: 10px;">ARAMIS - Guillaume CLEMENT</span>
-    <p>icons by&nbsp;<a href="https://icones8.fr/">icones8</a></p>
-    <div id="processing_message"></div>
+    
     <div id="loader" style="display: none;">
         <img src="spinner.gif" alt="Chargement en cours..." class="spinner">
-    </div>    
-    <div id="result"></div>
+    </div>
+
     <button id="total_bars_button" style="display: none;">Nombre de barres : 0</button>
+    <div id="processing_message"></div>   
+    <div id="result"></div>
     <div id="total_chute"></div>
-    <div id="total_pieces"></div>    
+    <div id="total_pieces"></div>
+
+    <!-- Conditions d'utilisation -->
+    <div id="terms_of_use" style="margin-top: 20px; font-size: 0.9em;">
+        <strong>Conditions d'utilisation :</strong>
+        Les résultats d'optimisation fournis par cette extension sont basés sur des algorithmes complexes et peuvent ne pas toujours représenter la solution la plus optimale. Ils sont offerts à titre indicatif et ne devraient pas être utilisés comme unique source de décision. L'utilisateur assume l'entière responsabilité de l'interprétation et de l'utilisation de ces résultats. Nous ne pouvons garantir leur exactitude ou pertinence pour des cas spécifiques.
+    </div>
+    <br>
+    <p>icons by&nbsp;<a href="https://icones8.fr/">icones8</a></p>
     <script src="popup.js"></script>
 </body>
 </html>

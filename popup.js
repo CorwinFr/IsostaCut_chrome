@@ -51,32 +51,48 @@ document.getElementById('optimizeButton').addEventListener('click', function() {
         return;      
     }
 
-    fetch('https://gctdevweb.ovh/optimize/', {
+    fetch('https://www.gctdevweb.ovh/optimize/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'accept': 'application/json'
         },
         body: JSON.stringify(data)
-    })    
-    .then(response => response.json())
+    })
+    .then(response => {
+        // Affichage des informations de la réponse pour le débogage
+        console.log('Statut de réponse:', response.status, 'Headers:', response.headers);
+    
+        if (!response.ok) {
+            // Si la réponse n'est pas OK, on rejette la promesse avec une erreur
+            return response.text().then(text => {
+                throw new Error('Erreur du serveur: ' + response.status + ' - ' + text);
+            });
+        }
+        // Retourne la réponse JSON si tout va bien
+        return response.json();
+    })
     .then(data => {
+        // Affichage de la réponse de l'API pour le débogage
+        console.log('Réponse de l\'API:', data);
+        // Traitement des données reçues...
         let resultText = '';
         for (const [cut, quantity] of Object.entries(data.cuts)) {
             resultText += `${cut} : ${quantity}\n`;
         }
-        document.getElementById('result').innerText = resultText;
+        document.getElementById('result').innerHTML = "Solution de découpe :<br>" + resultText + "<br>";
         document.getElementById('total_bars_button').textContent = "Nombre de barres : " + data.total_bars;
         document.getElementById('total_bars_button').style.display = 'block';
-        document.getElementById('total_chute').textContent = "Chute : " + data.total_waste;
+        document.getElementById('total_chute').textContent = "Chutes : " + data.total_waste ;
         document.getElementById('total_pieces').textContent = "Nombre de pièces : " + data.total_bars_cut;
-
-        loader.style.display = 'none';        
-
+    
+        loader.style.display = 'none';
     })
     .catch(error => {
+        // Affichage des erreurs dans la console et sur l'interface utilisateur
         console.error('Error:', error);
-        document.getElementById('processing_message').innerText = "Erreur lors de la requête d'optimisation.";
+        document.getElementById('processing_message').innerText = "Une erreur s'est produite : " + error.message;
         loader.style.display = 'none';
     });
+    
 });

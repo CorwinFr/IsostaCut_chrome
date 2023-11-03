@@ -1,22 +1,27 @@
 {
-    "manifest_version": 2,
-    "name": "Optimiseur de Découpes linéaires",
-    "version": "1.0",
-    "description": "Optimisez vos découpes linéaires avec ce plugin !",
-    "permissions": ["activeTab","https://gctdevweb.ovh/*"],
-    "browser_action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
-      }
-    },
-    "icons": {
+  "manifest_version": 3,
+  "name": "Optimiseur de Découpes linéaires",
+  "version": "1.0",
+  "description": "Optimisez vos découpes linéaires avec ce plugin !",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://www.gctdevweb.ovh/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
       "16": "icon16.png",
       "48": "icon48.png",
       "128": "icon128.png"
-    },
-    "web_accessible_resources": ["spinner.gif"]  
-  }
-  
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["spinner.gif"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
